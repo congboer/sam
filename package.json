@@ -1,5 +1,5 @@
 {
-  "name": "congboer",
+  "name": "sam",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "congboer",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/congboer/sam.git"
+  },
+  "bugs": {
+    "url": "https://github.com/congboer/sam/issues"
+  },
+  "homepage": "https://github.com/congboer/sam#readme"
 }
