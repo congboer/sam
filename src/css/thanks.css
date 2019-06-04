@@ -1,0 +1,74 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+#thanks {
+  width: 100%;
+  background-color: #ffdbcf;
+}
+#thanks .center1 {
+  width: 980px;
+  margin: 0 auto;
+}
+#thanks .center1 > img:nth-of-type(2) {
+  cursor: pointer;
+}
+#thanks .center1 > .ss {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#thanks .center1 > .ss > .cool {
+  width: 19%;
+  background-color: #fff;
+}
+#thanks .center1 > .ss > .cool a {
+  display: block;
+}
+#thanks .center1 > .ss > .cool a img {
+  width: 186px;
+  height: 186px;
+}
+#thanks .center1 > .ss > .cool a .pp1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#thanks .center1 > .ss > .cool a .pp1 .p1 {
+  display: inline-block;
+  width: 40px;
+  height: 14px;
+  font-size: 12px;
+  background-color: red;
+  color: white;
+  border-radius: 0 7px 7px 0;
+}
+#thanks .center1 > .ss > .cool a .pp1 .p2 {
+  font-size: 14px;
+}
+#thanks .center1 > .ss > .cool a .pp2 {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#thanks .center1 > .ss > .cool a .pp3 .price {
+  font-weight: bold;
+  color: red;
+  float: left;
+  margin-left: 10px;
+}
+#thanks .center1 > .ss > .cool a .pp3 .shopcar {
+  float: right;
+  margin-right: 10px;
+  background-color: green;
+  color: white;
+}

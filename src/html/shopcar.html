@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="../js/cookie.js"></script>
+    <link rel="stylesheet" href="../css/shopcar.css">
+    <script>
+        $(function() {
+            var shop = cookie.get('shop');
+            if (shop) {
+                shop = JSON.parse(shop);
+                // console.log(shop)
+                var idList = shop.map(elm => elm.id).join();
+                $.ajax({
+                    type: "get",
+                    url: "../php/shop.php",
+                    data: {
+                        "idList": idList
+                    },
+                    dataType: "json",
+                    success: function(response) {
+                        // console.log(response);
+                        var template = "";
+                        response.forEach(function(elm) {
+                            // console.log(elm);
+                            // var pic = JSON.parse(elm.pic);
+                            var arr = shop.filter((val, i) => {
+                                return val.id === elm.id;
+                            });
+                            // var elm.price = elm.price.slice(1)
+                            template = `
+                                    <li class="item">
+                                        <div class="box">
+                                            <input type="checkbox" id="p1">
+                                        </div>
+                                        <div class="img">
+                                            <img src="${elm.pic}" alt="">
+                                        </div>
+                                        <div class="title">
+                                            ${elm.title}${elm.details}
+                                        </div>
+                                        <div class="num">
+                                            数量：${arr[0].num}
+                                        </div>
+                                        <div class="price">
+                                            单价:${elm.price}
+                                        </div>
+                                        <div class="sum">
+                                            总价:${(arr[0].num*(elm.price).slice(1)).toFixed(2)}
+                                        </div>
+                                        <div class="del">
+                                            <a id="${elm.id}" href="javascript:;">删除</a>
+                                        </div>
+                                    </li>`;
+
+                            $('#foodlist').append(template).find('.del>a').on('click', function(ev) {
+                                ev = ev || event;
+                                // console.log(ev.target.parentNode.parentNode)
+                                // ev.target.parentNode.parentNode.remove();
+                                var shop = cookie.get('shop'); //从cookie获取shop
+                                shop = JSON.parse(shop)
+                                console.log(shop)
+                                var a = $(this).attr('id')
+                                    // console.log($(this).attr('id'))
+                                shop.forEach(function(elm) {
+                                    if (elm.id == a) {
+                                        // console.log(elm)
+                                        var i = shop.indexOf(elm)
+                                        shop.splice(i, 1) //删掉搜索到的，个数为一
+                                        shop = JSON.stringify(shop);
+                                        // console.log(shop)
+                                        cookie.set('shop', shop)
+                                        location.reload();
+                                    }
+                                })
+                            });
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <ul id="foodlist">
+        <!-- <li class="item">
+            <div class="box">
+                <input type="checkbox" id="p1">
+            </div>
+            <div class="img">
+                <img src="../img/normalpic1.jpg" alt="">
+            </div>
+            <div class="title">
+                惠氏 启赋3段900g奶粉爱尔兰进口 12-36月幼儿配方爱尔兰原装进口 专利技术O-P-O 喂养效果亲和人体
+            </div>
+            <div class="num">
+                数量：<span>3</span>
+            </div>
+            <div class="price">
+                单价:9999.00
+            </div>
+            <div class="sum">
+                总价:9999.00
+            </div>
+            <div class="del"><a href="#">删除</a></div>
+        </li> -->
+    </ul>
+</body>
+
+</html>

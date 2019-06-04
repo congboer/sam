@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>register</title>
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+
+<body>
+    <div class="global-center">
+        <div class="login-top">
+            <div class="logo-box">
+                <a href="http://www.samsclub.cn">
+                    <img src="../img/logo.png" alt="logo">
+                </a>
+            </div>
+            <h3 class="login-tit">
+                <em>——登录——</em>
+            </h3>
+        </div>
+        <div class="login-bottom">
+            <div class="bottom-center">
+                <div class="login" align="center">已开通山姆网购账户，请登录</div>
+                <input type="text" name="phonenum" id="phonenum" placeholder="您的手机号">
+                <p class="p1"></p>
+                <input type="password" name="userpassword" id="userpassword" placeholder="输入登录密码">
+                <p class="p2">6-20位字符，可以为数字、字母、下划线组成</p>
+                <input type="submit" name="" value="登录" id="sub">
+                <a href="javascript:;"></a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <script>
+        var reg_phonenum = /^\d{11,11}$/;
+        var reg_mima = /^\w{6,20}$/;
+        $('#phonenum').on('keyup', function() {
+            if (reg_phonenum.test($('#phonenum').val())) {
+                $('.p1').html('手机位数正确').css('color', "lime")
+            } else {
+                $('.p1').html('手机位数不正确，请重新输入').css('color', "red")
+            }
+        })
+        $('#userpassword').on('keyup', function() {
+            if (reg_mima.test($('#userpassword').val())) {
+                $('.p2').html('密码格式正确').css('color', "lime")
+            } else {
+                $('.p2').html('密码格式不正确，请重新输入').css('color', "red")
+            }
+        })
+
+        $('.login').css('font-size', '20px')
+        $('input:last').css('background', 'green').css('color', 'white');
+        $('input:last').on('click', function() {
+            $.get('../php/login.php', {
+                phonenum: $('#phonenum').val(),
+                userpassword: $('#userpassword').val()
+            }, function(data) {
+                var data = JSON.parse(data);
+                if (data.login) {
+                    location.href = "sam_index.html";
+                    alert('登录成功，开始shopping吧！')
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

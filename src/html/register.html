@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>register</title>
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+
+<body>
+    <div class="global-center">
+        <div class="login-top">
+            <div class="logo-box">
+                <a href="http://www.samsclub.cn">
+                    <img src="../img/logo.png" alt="logo">
+                </a>
+            </div>
+            <h3 class="login-tit">
+                <em>——欢迎注册——</em>
+            </h3>
+        </div>
+        <div class="login-bottom">
+            <div class="bottom-center">
+                <input type="text" name="username" id="username" placeholder="用户名">
+                <p class="p1">3-20位数字、字母、下划线或者2-5位中文组成</p>
+                <input type="text" name="useremail" id="useremail" placeholder="邮箱地址">
+                <p class="p2">请输入常用邮箱，可用作登录账户，接受订单通知和找回密码之用</p>
+                <input type="password" name="userpassword" id="userpassword" placeholder="设置密码">
+                <p class="p3">6-20位字符，可由大小写英文、数字或符号“_”组成</p>
+                <input type="password" name="repassword" id="repassword" placeholder="确认密码">
+                <p class="p4"></p>
+                <input type="text" name="phonenum" id="phonenum" placeholder="您的手机号">
+                <p class="p5"></p>
+                <input type="text" name="yzm" id="yzm" placeholder="验证码">
+                <div><input type="checkbox" name="msg" id="msg">订阅优惠信息</div>
+                <div><input type="checkbox" name="read" id="read">我已阅读并同意<a href="http://cms.samsclub.cn/sale/ZkHwwpxxTDO">《山姆网站使用条款》</a></div>
+                <input type="submit" name="" id="sub">
+                <p class="p6"></p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <script>
+        var reg = /^(\w{3,20})|([\u4E00-\u9FA5]{2,5}(·[\u4E00-\u9FA5]{2,5})?)$/;
+        var reg_mima = /^\w{6,20}$/;
+        var reg_email = /^\w+((-\w+)|(\.\w+))*@[A-z0-9]+((\.|-)[A-z0-9+])*\.[A-z0-9]+$/;
+        var reg_phonenum = /^\d{11,11}$/;
+        $('#username').on('blur', function() {
+            if (reg.test($('#username').val())) {
+                $.get('../php/hasname.php', {
+                    username: $('#username').val()
+                }, function(data) {
+                    var data = JSON.parse(data);
+                    if (data.hasname) {
+                        $('.p1').html(data.msg).css('color', "red")
+                    } else {
+                        $('.p1').html(data.msg).css('color', "lime")
+                    }
+                })
+            } else {
+                $('.p1').html('请输入正确的用户名').css('color', "red");
+            }
+        })
+        $('#repassword').on('blur', function() {
+            if ($('#userpassword').val() != $('#repassword').val()) {
+                $('.p4').html('密码不一致，请重新输入').css('color', "red")
+            } else {
+                $('.p4').html('密码一致').css('color', "lime")
+            }
+        })
+        $('#useremail').on('blur', function() {
+            if (reg_email.test($('#useremail').val())) {
+                $('.p2').html('邮箱格式正确').css('color', "lime")
+            } else {
+                $('.p2').html('邮箱格式不对，请重新输入').css('color', "red")
+            }
+        })
+        $('#userpassword').on('blur', function() {
+            if (reg_mima.test($('#userpassword').val())) {
+                $('.p3').html('密码格式正确').css('color', "lime")
+            } else {
+                $('.p3').html('密码格式不正确，请重新输入').css('color', "red")
+            }
+        })
+        $('#phonenum').on('keyup', function() {
+            if (reg_phonenum.test($('#phonenum').val())) {
+                $('.p5').html('手机位数正确').css('color', "lime")
+            } else {
+                $('.p5').html('手机位数不正确，请重新输入').css('color', "red")
+            }
+        })
+        $('#sub').css('background', 'blue').css('color', 'white');
+        $('#sub').on('click', function() {
+            if (reg.test($('#username').val()) && reg_email.test($('#useremail').val()) && reg_mima.test($('#userpassword').val()) && reg_phonenum.test($('#phonenum').val())) {
+                $.get('../php/zhuce.php', {
+                    username: $('#username').val(),
+                    useremail: $('#useremail').val(),
+                    userpassword: $('#userpassword').val(),
+                    phonenum: $('#phonenum').val()
+                }, function(data) {
+                    var data = JSON.parse(data);
+                    if (data.insert) {
+                        location.href = "login.html";
+                        alert('注册成功，请登录')
+                    }
+                })
+            } else {
+                $('.p6').html('注册信息有误,请检查并按要求重新填写').css('color', "red")
+            }
+        })
+    </script>
+</body>
+
+</html>

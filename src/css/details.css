@@ -1,0 +1,598 @@
+@charset "utf-8";
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+b,
+span,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+i,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 12px;
+  overflow-x: hidden;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+#top {
+  width: 100%;
+  height: 33px;
+  background-color: #0069aa;
+  line-height: 33px;
+  border-bottom: 1px solid #005c9d;
+}
+#top > #top-left {
+  float: left;
+  margin-left: 30px;
+  color: #a5c7db;
+}
+#top > #top-left > span > a {
+  color: #fff;
+}
+#top > #top-right {
+  float: right;
+  margin-right: 20px;
+}
+#top > #top-right > ul > li {
+  float: left;
+  margin: 0 20px;
+}
+#top > #top-right > ul > li:nth-of-type(1) {
+  width: 80px;
+}
+#top > #top-right > ul > li:hover a,
+#top > #top-right > ul > li:hover .iconfont {
+  color: #fff;
+}
+#top > #top-right > ul > li:hover .iconfont {
+  transform: rotate(180deg);
+  display: inline-block;
+  transition: all 0.5s;
+}
+#top > #top-right > ul > li:hover > div {
+  display: block;
+  background-color: #fff;
+}
+#top > #top-right > ul > li:hover > div ul > li {
+  text-align: center;
+}
+#top > #top-right > ul > li > a,
+#top > #top-right > ul > li > span {
+  color: #a5c7db;
+}
+#top > #top-right > ul > li > div {
+  display: none;
+  width: 80px;
+  position: absolute;
+  z-index: 100;
+}
+#top > #top-right > ul > li:nth-of-type(5) > div {
+  padding: 7px;
+  width: 202px;
+  height: 132px;
+  position: fixed;
+  right: 20px;
+  top: 34px;
+}
+#top > #top-right > ul > li:nth-of-type(5) > div > div {
+  float: left;
+  margin: 10px 0px;
+}
+#top > #top-right > ul > li:nth-of-type(5) > div img {
+  display: block;
+  margin: 0 2px;
+  width: 82px;
+  height: 82px;
+  justify-content: space-around;
+}
+#top > #top-right > ul > li:nth-of-type(5) > div span {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+header {
+  width: 100%;
+  height: 68px;
+  background-color: #005c9d;
+  display: flex;
+  justify-content: space-around;
+}
+header > div {
+  float: left;
+}
+header #adr span {
+  line-height: 68px;
+  margin: 0 3px;
+  color: #a5c7db;
+}
+header #adr span:nth-of-type(2) {
+  font-size: 16px;
+}
+header #adr span:nth-of-type(4) {
+  border: 1px solid #a5c7db;
+  padding: 4px;
+  cursor: pointer;
+}
+header #adr a {
+  color: #a5c7db;
+}
+header #logo {
+  margin-left: 0px;
+}
+header #logo a {
+  height: 68px;
+  display: block;
+}
+header #logo a > img {
+  width: 233px;
+  height: 67px;
+}
+header #inp {
+  position: relative;
+  float: right;
+  height: 68px;
+  margin-right: 20px;
+  display: flex;
+  width: 310px;
+}
+header #inp input {
+  flex-grow: 1;
+  height: 34px;
+  color: red;
+  background-color: #015c92;
+  margin: 16px 20px;
+  border: 1px solid blue;
+}
+header #inp button {
+  background-color: transparent;
+  border: 0;
+  color: white;
+  position: absolute;
+  right: 60px;
+  top: 20px;
+  font-size: 22px;
+}
+header #inp span {
+  font-size: 35px;
+  line-height: 68px;
+  font-weight: bold;
+  color: white;
+}
+header #inp span:nth-of-type(2) {
+  position: absolute;
+  right: 15px;
+  font-size: 20px;
+  top: -5px;
+  color: yellow;
+}
+#navbox {
+  width: 100%;
+  height: 40px;
+  background-color: #004b8d;
+}
+#navbox ul {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+#navbox ul #div1 {
+  width: 1150px;
+  left: -1px;
+  top: 38px;
+}
+#navbox ul #div2 {
+  width: 550px;
+  left: -2px;
+  top: 38px;
+}
+#navbox ul #div3 {
+  width: 550px;
+  left: -2px;
+  top: 38px;
+}
+#navbox ul #div4 {
+  width: 550px;
+  left: -2px;
+  top: 38px;
+}
+#navbox ul #div5 {
+  width: 550px;
+  left: -2px;
+  top: 38px;
+}
+#navbox ul #div6 {
+  width: 390px;
+  left: -2px;
+  top: 38px;
+}
+#navbox ul #div7 {
+  width: 510px;
+  top: 38px;
+  left: -2px;
+}
+#navbox ul #div8 {
+  right: -2px;
+  width: 650px;
+  top: 38px;
+}
+#navbox ul #div9 {
+  right: -2px;
+  width: 650px;
+  top: 38px;
+}
+#navbox ul #div10 {
+  right: -2px;
+  width: 400px;
+  top: 38px;
+}
+#navbox ul #div11 {
+  right: -2px;
+  width: 270px;
+  top: 38px;
+}
+#navbox ul li {
+  line-height: 40px;
+  position: relative;
+}
+#navbox ul li > div > dl a:hover {
+  color: #0069aa;
+}
+#navbox ul li:hover > a {
+  color: blue;
+}
+#navbox ul li > a {
+  color: #fff;
+}
+#navbox ul li:hover {
+  background-color: #fff;
+}
+#navbox ul li:hover > div {
+  display: block;
+  background-color: #fff;
+}
+#navbox ul li div {
+  position: absolute;
+  z-index: 90;
+  display: none;
+  border: 1px solid #004b8d;
+  border-top: 0;
+}
+#navbox ul li div dl {
+  float: left;
+  margin-left: 10px;
+}
+#navbox ul li div dl dt {
+  border-bottom: 1px solid black;
+  width: 115px;
+  height: 36px;
+  font-size: 14px;
+  font-weight: 600;
+}
+#navbox ul li div dl dt a {
+  color: black;
+}
+#navbox ul li div dl dd {
+  margin-top: 10px;
+  font-size: 14px;
+}
+#navbox ul li div dl dd a {
+  color: black;
+}
+#navbox ul li div dl dd span {
+  color: red;
+  float: right;
+  font-size: 12px;
+  margin-right: 10px;
+  width: 12px;
+}
+.movebox {
+  background-color: rgba(150, 150, 146, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: move;
+  display: none;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+#details > #miaoshu {
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+#details > #goods {
+  height: 500px;
+}
+#details > #goods #left {
+  position: relative;
+}
+#details > #goods #left > div {
+  float: left;
+}
+#details > #goods #left .smallpic {
+  width: 75px;
+  height: 450px;
+}
+#details > #goods #left .smallpic img {
+  float: left;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 10px;
+}
+#details > #goods #left .normalpic {
+  width: 480px;
+  height: 480px;
+  background-color: yellow;
+  margin-left: 20px;
+  position: relative;
+}
+#details > #goods #left .normalpic img {
+  width: 480px;
+  height: 480px;
+  display: block;
+}
+#details > #goods #left .big {
+  width: 480px;
+  height: 480px;
+  position: absolute;
+  left: 580px;
+  overflow: hidden;
+}
+#details > #goods #left .big img {
+  width: 960px;
+  height: 960px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#details > #goods #right {
+  width: 650px;
+  height: 466px;
+  float: right;
+  margin-right: 30px;
+}
+#details > #goods #right > .p1 {
+  font-size: 20px;
+}
+#details > #goods #right > .p1 span {
+  font-size: 20px;
+  line-height: 22px;
+  color: white;
+  background-color: red;
+}
+#details > #goods #right > .p2 {
+  font-size: 18px;
+}
+#details > #goods #right > #price {
+  font-size: 18px;
+}
+#details > #goods #right > #price span {
+  display: inline-block;
+  width: 120px;
+  height: 33px;
+  font-size: 26px;
+  line-height: 33px;
+}
+#details > #goods #right > #box {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  font-size: 20px;
+  line-height: 35px;
+}
+#details > #goods #right > #box span {
+  display: inline-block;
+  font-size: 35px;
+  color: red;
+}
+#details > #goods #right > #praise {
+  font-size: 18px;
+  line-height: 35px;
+}
+#details > #goods #right > #praise span {
+  display: inline-block;
+  font-size: 35px;
+  color: #0069aa;
+}
+#details > #goods #right > #adress {
+  font-size: 18px;
+  line-height: 35px;
+}
+#details > #goods #right > #adress span:nth-of-type(1) {
+  display: inline-block;
+  font-size: 25px;
+  color: #0069aa;
+}
+#details > #goods #right > #adress span:nth-of-type(2) {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+}
+#details > #goods #right > #adress span:nth-of-type(3) {
+  color: #0069aa;
+}
+#details > #goods #right > #tags {
+  font-size: 18px;
+  line-height: 35px;
+}
+#details > #goods #right > #tags span {
+  display: inline-block;
+  font-size: 35px;
+  color: #0069aa;
+}
+#details > #goods #right > #shopcar {
+  cursor: pointer;
+}
+#details > #goods #right > #shopcar > div {
+  float: left;
+}
+#details > #goods #right > #shopcar #count {
+  border: 1px solid black;
+  text-align: center;
+}
+#details > #goods #right > #shopcar #count span {
+  cursor: pointer;
+}
+#details > #goods #right > #shopcar #count span:nth-of-type(1) {
+  display: inline-block;
+  font-size: 40px;
+  width: 30px;
+  height: 50px;
+  line-height: 50px;
+  color: #0069aa;
+  border-right: 1px solid black;
+}
+#details > #goods #right > #shopcar #count span:nth-of-type(2) {
+  display: inline-block;
+  font-size: 35px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px;
+}
+#details > #goods #right > #shopcar #count span:nth-of-type(3) {
+  display: inline-block;
+  font-size: 40px;
+  width: 30px;
+  color: #0069aa;
+  height: 50px;
+  line-height: 50px;
+  border-left: 1px solid black;
+}
+#details > #goods #right > #shopcar #car {
+  background-color: green;
+  height: 53px;
+  margin-left: 30px;
+}
+#details > #goods #right > #shopcar #car span:nth-of-type(1) {
+  display: inline-block;
+  font-size: 30px;
+  color: white;
+  line-height: 53px;
+  padding-left: 5px;
+}
+#details > #goods #right > #shopcar #car span:nth-of-type(2) {
+  display: inline-block;
+  font-size: 25px;
+  color: white;
+  margin-left: 10px;
+  line-height: 53px;
+}
+#details > #goods #right > #shopcar #btns {
+  cursor: pointer;
+  height: 53px;
+}
+#details > #goods #right > #shopcar #btns span {
+  font-size: 40px;
+}
+#details > #goods #right > #shopcar #btns span:nth-of-type(1) {
+  font-size: 24px;
+  line-height: 53px;
+}
+#details > #goods #right > #shopcar #btns span:nth-of-type(3) {
+  font-size: 24px;
+  line-height: 53px;
+}
+footer {
+  widows: 100%;
+  height: 300px;
+  background-color: #ebebeb;
+}
+footer #foot {
+  width: 95%;
+  height: 250px;
+  margin: 0 auto;
+  position: relative;
+}
+footer #foot #nav1 > dl:nth-of-type(1) {
+  width: 192px;
+  height: 190px;
+}
+footer #foot #nav1 > dl:nth-of-type(1) img {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+}
+footer #foot #nav1 > dl:nth-of-type(1) p {
+  width: 120px;
+  margin: 0 auto;
+  text-align: center;
+  color: #666;
+  margin-top: 5px;
+}
+footer #foot #nav1 > dl {
+  float: left;
+  width: 168px;
+}
+footer #foot #nav1 > dl > dt {
+  height: 30px;
+  line-height: 30px;
+}
+footer #foot #nav1 > dl > dt:hover a {
+  color: #0069aa;
+}
+footer #foot #nav1 > dl > dt a {
+  color: #333;
+}
+footer #foot #nav1 > dl > dd > a:hover {
+  color: #0069aa;
+}
+footer #foot #nav1 > dl > dd a {
+  margin-top: 10px;
+  display: block;
+  color: #666;
+}
+footer #foot #nav2 {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translatex(-50%);
+}
+footer #foot #nav2 > p:nth-of-type(1) {
+  text-align: center;
+}
+footer #foot #nav2 > p > a {
+  color: #666;
+}

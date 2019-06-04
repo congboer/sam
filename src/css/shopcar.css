@@ -1,0 +1,53 @@
+@charset "utf-8";
+* {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+#foodlist {
+  width: 1171px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+#foodlist .item {
+  border: 1px solid black;
+  height: 130px;
+  margin: 20px 0;
+  display: block;
+}
+#foodlist .box #p1 {
+  width: 30px;
+  height: 30px;
+}
+#foodlist .img img {
+  width: 120px;
+  height: 120px;
+}
+#foodlist .title {
+  font-size: 18px;
+  width: 400px;
+}
+#foodlist .num {
+  font-size: 18px;
+}
+#foodlist .price {
+  font-size: 18px;
+  color: black;
+}
+#foodlist .sum {
+  font-size: 25px;
+  color: red;
+}
+#foodlist .del a {
+  font-size: 18px;
+}
+#foodlist > li > div {
+  float: left;
+  margin-left: 20px;
+  margin: 0 10px;
+}
